@@ -51,17 +51,10 @@ This is an example of how to use:
     1. Run this command to install the necessary libraries: `sudo apt install make build-essential lzip m4 libncurses5-dev`
 
 2. Install `gmp`:
-    1. Run `sudo apt install teXinfo`.
-    2. Download GMP from here: https://gmplib.org/
-    3. Unpack it with the command: `sudo tar --lzip -xvf gmp-x.y.z.tar.lz`
-    4. Navigate into that folder: `cd gmp-x.y.z`
-    5. Run the following commands:
-        ```
-        sudo ./configure --enable-cxx
-        sudo make
-        sudo make check
-        sudo make install
-        ```
+    ```
+    sudo apt update
+    sudo apt install libgmp-dev
+    ```
 
 3. Install `pipx` and `gcovr`.
     ```
@@ -69,9 +62,9 @@ This is an example of how to use:
     pipx install gcovr
     ```
 
-4. Install `g++-14`, `gcc-14`, and `lcov`.
+4. Install `g++-14` and `gcc-14`.
     ```
-    sudo apt install g++-14 gcc-14 lcov
+    sudo apt install g++-14 gcc-14
     ```
 
 5. Install `openssl` from source, along with the `libssl-dev` library.
@@ -121,11 +114,18 @@ This is an example of how to use:
 
 8. Install GoogleTest from source.
     ```
-    git clone https://github.com/google/googletest.git -b <latestReleasedTag>
+    git clone git@github.com/google/googletest.git -b <latestReleasedTag>
     cd googletest        # Main directory of the cloned repository.
     mkdir build          # Create a directory to hold the build output.
     cd build
     cmake ..             # Generate native build scripts for GoogleTest.
     sudo make
+    sudo make install
+    ```
+
+9. Install `lcov` from source:
+    ```
+    git clone git@github.com:linux-test-project/lcov.git -b <latestReleasedTag>
+    cd lcov
     sudo make install
     ```
